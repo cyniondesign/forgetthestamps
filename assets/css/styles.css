@@ -1,0 +1,394 @@
+@import "reset.css";
+
+/*-------------------------------------------------------------------------------------------*/
+/* 1. SETUP */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 1.1 Defaults */
+
+body {
+	background: #e5e5e5 url(../img/bg_main.jpg);
+	font: normal 14px/1.5em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5, h6  { margin: 0; color: #333; }
+
+h1  {font-size: 2em } h2  {font-size: 1.8em;} h3  {font-size: 1.6em;} h4  {font-size: 1.2em;} h5  {font-size: 1em;} h6  {font-size: 0.8em;}
+
+p { margin: 0; }
+
+hr { background-color: #e6e6e6;	border:0; height: 1px; margin-bottom: 20px; }
+
+input, textarea { padding: 7px 0 7px 7px; border-color: #ccc #efefef #efefef #ccc; border-width:1px; border-style:solid;}
+
+/* 1.2 Hyperlinks */
+
+a:link, a:visited, a:hover {
+	color: #369;
+}
+
+a:link, a:visited  { text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited, h5 a:link, h5 a:visited, h6 a:link, h6 a:visited  { text-decoration: none; }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-decoration: underline;}
+
+/*-------------------------------------------------------------------------------------------*/
+/* 2. SITE STRUCTURE & APPEARANCE */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 2.1 Containers & Columns */
+
+#main{width:940px;}
+#main.col-left{width:720px;}
+
+#sidebar{width:220px;padding: 20px 0 0 0;}
+
+.col-left { float: left; }
+.col-right { float: right; }
+.col-full  { width: 940px; margin: 0 auto; }
+
+/* 2.2 Header */
+
+#header {
+	margin: 0 0 50px;
+	background: #666 url(../img/bg_header.jpg);
+	border-bottom: 1px solid #333;
+	clear: both;
+	position: relative;
+}
+
+#logo  { float:left; padding: 12px 0 9px; }
+#logo img  { padding-top: 9px; }
+#logo .site-title, #logo .site-description  { display:none; word-wrap: break-word;  }
+#logo .site-title a { color:#fff; font-size:28px; line-height:25px; text-transform:none; text-decoration:none; }
+#logo .site-title a:hover { text-decoration:underline; }
+#logo .site-description { color:#999; font-style: italic; line-height: 12px; }
+
+#topad {float:right;}
+
+/* 2.2.1 Navigation */
+#navigation  { float: right; }
+
+.nav { z-index:99; margin:0; padding:0; list-style:none; line-height:1; }
+.nav a:link, .nav a:visited  { position:relative; color:#fff; display:block; z-index:100; margin: 0 1px 0 0; padding:8px 17px; line-height:42px !important; font-size: 15px; font-weight: bold; text-decoration:none; text-shadow:2px 1px 0 rgba(0,0,0,0.4); }
+
+.nav a:hover,
+.nav li.current a:link, .nav li.current a:visited,
+.nav li.current a:link, .nav li.current a:visited,
+.nav li.current a:link, .nav li.current a:visited { background: transparent; text-decoration: underline;}
+
+.nav li  { float:left; width: auto; }
+.nav li a.sf-with-ul { padding-right:20px; }
+
+	/* Drop-down menus */
+	.nav li ul  { background: #9bc4ce; position: absolute; left: -999em; width: 181px; border-width:1px 1px 0; z-index:999; }
+	.nav li ul li  { border-top:1px solid #b4d9e2; border-bottom:1px solid #76a0aa;}
+	.nav li ul li a:link, .nav li ul li a:visited  { width:160px; padding: 0 10px; font-size: 12px; line-height: 30px; }
+	.nav li ul li a.sf-with-ul { padding:5px 10px; }
+	.nav li ul li a:hover,
+	.nav li ul li.current_page_item a:link, .nav li ul li.current_page_item a:visited,
+	.nav li ul li.current-menu-item a:link, .nav li ul li.current-menu-item a:visited { background-color:#76a0aa!important;}
+	.nav li ul li a  { background-image: none!important; }
+	.nav li ul ul  { margin: -30px 0 0 180px; }
+	.nav li ul ul li a  {  }
+	.nav li ul li ul li a  {  }
+
+	.nav li:hover,.nav li.hover  { position:static; }
+	.nav li:hover ul ul, .nav li.sfhover ul ul,
+	.nav li:hover ul ul ul, .nav li.sfhover ul ul ul,
+	.nav li:hover ul ul ul ul, .nav li.sfhover ul ul ul ul { left:-999em; }
+	.nav li:hover ul, .nav li.sfhover ul,
+	.nav li li:hover ul, .nav li li.sfhover ul,
+	.nav li li li:hover ul, .nav li li li.sfhover ul,
+	.nav li li li li:hover ul, .nav li li li li.sfhover ul  { left:auto; }
+
+	#navigation .nav a.sf-with-ul  { padding-right: 32px; }
+	#navigation .nav li ul a.sf-with-ul  { padding: 0 10px; }
+	.nav .sf-sub-indicator {background:	url(arrow-superfish.png) no-repeat;position:absolute;display:block;right:1em;top:1.7em;width:10px;height:10px;text-indent:-999em;overflow:hidden;}
+	.nav li ul .sf-sub-indicator {background:url(arrow-superfish-right.png) no-repeat; top: 1em;}
+
+/* 2.3 Content */
+#content{padding:0 0 40px;}
+
+/* 2.4 Sidebar */
+#sidebar{overflow:hidden;}
+#sidebar .primary { }
+#sidebar .secondary { float:left; margin-right:20px; }
+#sidebar .secondary.last { margin:0; }
+
+/* 2.5 Footer */
+#footer-secondary  { padding: 40px 0; background: #dedede url(../img/indentline-light.png) repeat-x left top; }
+#footer-secondary h3  { float: left; margin: 0 80px 0 0; position: relative; width: 145px; padding: 12px 0 7px 15px; background: #333333; font-size:18px; font-weight: bold; color: #fff; text-shadow:2px 1px 0 rgba(0,0,0,0.4); }
+#footer-secondary h3 .bg  { position: absolute; top: 0; right: -15px; height: 38px; width: 15px; display: block; background: url(bg-postdate.png) no-repeat center right; }
+
+#footer-widgets {
+	background: url(../img/bg_main_medium.jpg);
+	border-top: 1px solid #e6e6e6;
+	padding: 10px 0;
+}
+
+#footer-widgets .block { margin:20px 20px 0 0; width:220px; float:left; }
+#footer-widgets .block.last  { margin-right: 0; }
+
+#footer {
+	background: #dedede url(../img/bg_main_dark.jpg);
+	padding: 30px 0 26px;
+	color: #999;
+	border-top: 1px solid #ccc;
+	border-bottom: 2px solid #333;
+}
+
+#footer .footer-inside  { width: 940px; margin: 0 auto; }
+#footer p {}
+#footer #credit img{vertical-align:middle;}
+#footer #credit span{display:none;}
+
+/*-------------------------------------------------------------------------------------------*/
+/* 3. POSTS */
+/*-------------------------------------------------------------------------------------------*/
+
+.archive_header  { display: block; width: 520px; margin: -28px 0 10px; padding: 0 0 0 180px; font-size: 18px; font-weight: bold; }
+.archive_header .catrss a  { font-size: 14px; text-decoration: none; line-height: 20px; }
+
+.post  { margin: 0 0 40px;}
+.post.not-found  { width: 660px; padding: 20px; background: #fff; border-right: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; }
+
+.post .post-meta  { width: 160px; margin: 0 20px 0 0; padding: 15px 0 0 0; text-shadow:2px 1px 0 rgba(0,0,0,0.4); color: #9f9f9f; font-size: 12px; }
+.post .post-meta .post-date { position: relative; display: block; margin: 0 0 1px 0; padding: 10px 0 9px 15px; background: #333333; font-size:18px !important; font-weight: bold; color: #fff; }
+.post .post-meta .post-date .bg  { position: absolute; top: 0; right: -15px; height: 38px; width: 15px; display: block; background: url(bg-postdate.png) no-repeat center right; }
+.post .post-meta ul  { background: #333333; }
+.post .post-meta ul li  { padding: 7px 15px 8px;
+ font-weight: bold; background: url(../img/indentline.png) repeat-x left bottom;  }
+.post .post-meta ul li a  { color: #fff; }
+
+
+.post .middle  { width: 479px; margin: 0 20px 0 0; padding: 20px 20px 0; background: #fff; border-right: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; }
+.post.page  { width: 659px; padding: 20px 20px 0; background: #fff; border-right: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; }
+.fullwidth .post.page  { width: 899px; }
+.post.page.image-gallery, .post.page.tags, .post.page.timeline   { padding-bottom: 20px; }
+.post.page.timeline #archives  { margin: 0 0 0 20px; }
+.post .title  { font:normal bold 30px/24px Arial, Helvetica, sans-serif;position:relative; margin: 0 0 20px; }
+.page .post .title  { margin: 0 0 20px 0; }
+.post .title a:link, .post .title a:visited  { color:#000; }
+.post .title a:hover  { text-decoration: none; color: #000; }
+.post .main-image  { margin: 0 0 20px -20px; }
+
+/* 3.1 Typographic Elements */
+.entry  {font:14px/1.5em Helvetica, Arial, sans-serif;}
+.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 { margin:0 0 0.5em; line-height:1.5em; }
+.entry p  { margin-bottom: 1.5em; font-size: 14px; }
+.entry blockquote  { background:url(blockquote.png) no-repeat 0 12px; padding: 10px 20px 10px 50px; color: #444;  }
+.entry blockquote p  { font-style:italic; }
+
+.entry ul  { margin-bottom: 1.5em; padding: 0 0 0 30px; }
+.entry ul ul  { margin: 0; }
+.entry ul li  {	list-style-type: disc; }
+.entry ul ul li  { list-style-type: circle; }
+
+.entry ol  { margin-bottom: 1.5em; padding: 0 0 0 30px; }
+.entry ol ol  { margin: 0; }
+.entry  ol li  { list-style-type: decimal; }
+.entry  ol li ol li  { list-style-type: lower-latin; }
+
+/* 3.2 Images */
+.entry img, img.thumbnail {  }
+img.wp-smiley  { padding: 0; border: none; }
+
+.alignleft  { float: left; height: auto; margin: 5px 15px 5px 0; }
+.alignright  { float: right; height: auto; margin: 5px 0 5px 15px; }
+.aligncenter  { text-align: center; margin-bottom:15px;}
+img.aligncenter  { margin-left:auto; margin-right:auto; display:block; }
+
+.entry .wp-caption { padding: 1px; text-align:center; background:#F8F8F8; border: solid 1px #e6e6e6; }
+.entry .wp-caption img{ margin:0; padding:4px 0; background:none; border:0; }
+.entry .wp-caption-text { margin:0; padding:0; font:0.9em/1.5em Arial, Helvetica, sans-serif; text-align:center; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* 4. WIDGETS */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 4.2 Generic Widgets */
+.widget  { margin: 0 0 30px 0; font-size:12px; color: #555; }
+.widget h3  { margin: 0 0 10px 0; padding:0 0 15px; text-transform:uppercase; font:normal bold 18px Arial, Helvetica, sans-serif; background: url(../img/indentline.png) repeat-x bottom left; }
+.widget p { font:12px/20px Arial, Helvetica, sans-serif; margin-bottom:15px; }
+
+.widget ul  { margin-top: -10px; clear:both; list-style-position:inside; list-style-type:disc;}
+.widget ul li  { padding: 7px 0; padding-left: 10px; list-style: none; background: url(../img/indentline-light.png) repeat-x bottom left; }
+.widget ul li a  { line-height: 18px; text-decoration: none; color: #555; }
+.widget ul li a:hover  { text-decoration:underline; }
+.widget ul ul  { padding: 10px 0 0 10px; border-top: none; }
+.widget ul ul li  { background: none; padding: 3px 0; }
+
+/* 4.2 Specific Widgets */
+
+/* WIDGET FORMS */
+.searchform  { }
+.widget input.s  { float:left; width: 96%; padding: 7px 0 7px 7px; margin: 0 5px 5px 0; border-color: #ccc #efefef #efefef #ccc; border-width:1px; border-style:solid;}
+.widget .screen-reader-text  { display: none; }
+.widget input.submit { float:right; }
+
+/* TEXT WIDGET */
+.widget_text .textwidget  { padding: 0 10px; line-height: 18px!important; }
+.widget_text .textwidget p  { line-height: 18px!important; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* 6. MISC */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 6.1 Buttons */
+a.button,
+a.comment-reply-link,
+#commentform #submit,
+.widget input.submit,
+#contact-page ol.forms li.buttons .submit {
+	display: inline-block;
+	margin: 5px;
+	padding: 7px 13px;
+	border: 1px solid #000;
+	border-bottom-color: #000;
+	color: white !important;
+	text-align: center;
+	text-shadow: 0 -1px 0 hsla(0,0%,0%,.3);
+	text-decoration: none;
+	text-transform: uppercase;
+	font: bold!important;
+
+	/*Border radius*/
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	/*Background*/
+	background: #000; /*Fallback*/
+	background: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(.2, #333333),
+					color-stop(1, #000)
+				);
+	background: -moz-linear-gradient(
+					center top,
+					#333333 20%,
+					#000 100%
+				);
+
+	/*Box shadow*/
+	-webkit-box-shadow: inset 0 1px 0 hsla(0,100%,100%,.3) /*Top*/,
+						inset 0 0 2px hsla(0,100%,100%,.3) /*Shine*/,
+						0 1px 2px hsla(0, 0%, 0%, .29) /*Shadow*/;
+	-moz-box-shadow: inset 0 1px 0 hsla(0,100%,100%,.3) /*Top*/,
+					inset 0 0 2px hsla(0,100%,100%,.3) /*Shine*/,
+					0 1px 2px hsla(0, 0%, 0%, .29) /*Shadow*/;
+	box-shadow: inset 0 1px 0 hsla(0,100%,100%,.3) /*Top*/,
+				inset 0 0 2px hsla(0,100%,100%,.3) /*Shine*/,
+				0 1px 2px hsla(0, 0%, 0%, .29) /*Shadow*/;
+}
+
+a.button.large { padding:6px 16px;}
+a.button.small, a.comment-reply-link { padding:0px 10px;}
+
+a.button:hover,
+a.button.hover,
+a.button.active,
+a.comment-reply-link:hover,
+#commentform #submit:hover,
+.widget input.submit:hover,
+#contact-page ol.forms li.buttons .submit:hover {
+	text-decoration: none !important;
+	/*Background*/
+	background: #333333; /*Fallback*/
+	background: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(.2, #333333),
+					color-stop(1, #212121)
+				);
+	background: -moz-linear-gradient(
+					center top,
+					#333333 20%,
+					#212121 100%
+				);
+}
+
+a.button:active,
+a.button.active  {
+	border-color: #20559a;
+
+	/*Box shadow*/
+	-webkit-box-shadow: inset 0 0 7px hsla(0,0%,0%,.3) /*Shine*/,
+						0 1px 0 hsla(0, 100%, 100%, 1) /*Shadow*/;
+	-moz-box-shadow: inset 0 0 7px hsla(0,0%,0%,.3) /*Shine*/,
+					0 1px 0 hsla(0, 100%, 100%, 1) /*Shadow*/;
+	box-shadow: inset 0 0 7px hsla(0,0%,0%,.3) /*Shine*/,
+				0 1px 0 hsla(0, 100%, 100%, 1) /*Shadow*/;
+}
+
+a.button.inactive,{
+	border: 1px solid #d5d5d5;
+	border-bottom-color: #e6e2e2;
+	color: #aeaeae;
+	text-shadow: 0 1px 0 white;
+
+	/*Background*/
+	background: #e8e8e8; /*Fallback*/
+	background: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(.2, #f3f3f3),
+					color-stop(1, #e6e6e6)
+				);
+	background: -moz-linear-gradient(
+					center top,
+					#f3f3f3 20%,
+					#e6e6e6 100%
+				);
+
+	/*Box shadow*/
+	-webkit-box-shadow: inset 0 1px 0 hsla(0,100%,100%,.5) /*Top*/,
+						inset 0 0 2px hsla(0,100%,100%,.1) /*Shine*/,
+						0 1px 0 hsla(0, 100%, 100%, .7) /*Shadow*/;
+	-moz-box-shadow: inset 0 1px 0 hsla(0,100%,100%,.5) /*Top*/,
+					inset 0 0 2px hsla(0,100%,100%,.1) /*Shine*/,
+					0 1px 0 hsla(0, 100%, 100%, .7) /*Shadow*/;
+	box-shadow: inset 0 1px 0 hsla(0,100%,100%,.5) /*Top*/,
+					inset 0 0 2px hsla(0,100%,100%,.1) /*Shine*/,
+					0 1px 0 hsla(0, 100%, 100%, .7) /*Shadow*/;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* CUSTOM */
+/*-------------------------------------------------------------------------------------------*/
+
+#navigation, #navigation .nav a {
+	font: bold 13px/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #fff;
+}
+.post .title, .post .title a:link, .post .title a:visited {
+	font: bold 24px/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #000;
+}
+#main .post .post-meta, #main .post .post-meta a, .post .post-meta .post-date {
+	font: normal 12px/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #fff;
+}
+.entry, .entry p {
+	font: normal 14px/1.5em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #333;
+}
+.widget h3 {
+	font: bold 13px/1em "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+	color: #333;
+}
+img.thumb {
+	padding: 4px;
+	border: 1px solid #ccc;
+}
+a:hover img.thumb {
+	background: #ccc;
+}
